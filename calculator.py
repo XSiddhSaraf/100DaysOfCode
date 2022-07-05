@@ -29,7 +29,7 @@ operations = {'+': add, '-': sub, '*': mul, '/': div}
 
 
 def calculator():
-    calculator_logo
+    print(calculator_logo)
     num1 = int(input('What is the first number? '))
 
     for key in operations:
