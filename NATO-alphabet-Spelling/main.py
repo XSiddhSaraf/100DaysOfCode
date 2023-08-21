@@ -33,7 +33,10 @@ nato_codes = {row['letter']:row['code'] for(index,row) in nato_spell.iterrows()}
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
 take_name = input('Please enter your name:').upper()
 
+try:
+    your_name = [nato_codes[letter] for letter in take_name]
+except KeyError:
+    print("Please enter an alphabet")
 
-your_name = [nato_codes[letter] for letter in take_name]
 print(your_name)
 
