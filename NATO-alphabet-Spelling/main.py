@@ -31,12 +31,17 @@ nato_codes = {row['letter']:row['code'] for(index,row) in nato_spell.iterrows()}
 #print(nato_codes)
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-take_name = input('Please enter your name:').upper()
 
-try:
-    your_name = [nato_codes[letter] for letter in take_name]
-except KeyError:
-    print("Please enter an alphabet")
+def generate_phonetic():
+    take_name = input('Please enter your name:').upper()
 
-print(your_name)
+    try:
+        your_name = [nato_codes[letter] for letter in take_name]
+    except KeyError:
+        print("Please enter an alphabet")
+        generate_phonetic()
 
+    else:
+        print(your_name)
+
+generate_phonetic()
