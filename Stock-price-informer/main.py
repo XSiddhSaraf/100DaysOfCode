@@ -73,18 +73,18 @@ if abs(diff_percent) > 1:
     ## STEP 3: Use twilio.com/docs/sms/quickstart/python
     #to send a separate message with each article's title and description to your phone number. 
 
-#TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
+#Create a new list of the first 3 article's headline and description using list comprehension.
 #First make the required sting for mobile text message : Headline: {article title}. \nBrief: {article description} - > Then fetch title and description from the three_article list.
     formatted_articles = [f"{STOCK_NAME}: {up_down} {difference}%\nHeadline: {article['title']}.\nBrief: {article['description']}" for article in three_articles]
     print(formatted_articles)
 
-#TODO 9. - Send each article as a separate message via Twilio. 
+#Send each article as a separate message via Twilio.
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     for article in formatted_articles:
         message = client.messages.create(body=articles,from_=VIRTUAL_TWILIO_NUMBER,to=VERIFIED_NUMBER)
 
 
-#Optional TODO: Format the message like this: 
+#Optional Format the message like this:
 """
 TSLA: 🔺2%
 Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
